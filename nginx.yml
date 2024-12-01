@@ -1,0 +1,13 @@
+---
+- name: Install nginx
+  hosts: oracle
+  gather_facts: true
+  become: yes
+  tasks:
+  - name: Install nginx for oralce linux
+    dnf:
+      name: 
+        - nginx
+      state: present
+    
+
