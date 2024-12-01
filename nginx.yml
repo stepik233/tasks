@@ -1,29 +1,19 @@
 ---
 - name: Install nginx
-  hosts: oracle
+  hosts: all
   gather_facts: true
   become: yes
   tasks:
-  - name: Install nginx for oralce linux
+  - name: Install nginx RedHat family
     dnf:
       name: 
         - nginx
       state: present
+    when: ansible_os_family=="RedHat"
 
-- name: Install nginx Debian family
+  - name: Install nginx Debian family
     apt:
       name:
         - nginx
       state: present
     when: ansible_os_family=="Debian"
-
-  - name: Run nginx
-    notify: nginx systemd
-
-handlers:
-  - name: nginx systemd
-    systemd:
-      name: jenkins
-      state: started
-      enabled: true    
-
