@@ -1,0 +1,16 @@
+создание файла -  touch task4
+
+создание каталога - mkdir task4
+
+установка node.js - sudo dnf module list nodejs 
+		    sudo dnf module enable nodejs:20
+		    sudo dnf install nodejs -y
+	            node --version
+
+
+установка ssh - sudo dnf install openssh openssh-server
+                systecmtl status sshd
+		подключился по ssh к mobaxtern
+
+создание пользователя -  sudo useradd master2
+                         sudo passwd master2
