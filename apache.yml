@@ -1,0 +1,11 @@
+---
+- name: install apache and start it
+  hosts: servers
+  become: yes
+
+  tasks:
+   - name: install apache
+     dnf: name=httpd state=latest
+
+   - name: run apache
+     service: name=httpd state=started enabled=yes
