@@ -1,0 +1,21 @@
+---
+- name: install nginx start nginx and add my webpage
+  hosts: servers
+  become: yes
+
+  vars:
+    source: ./site.html
+    destanation: /usr/share/nginx/html/
+ 
+  tasks:
+  - name: install nginx
+    dnf: name=nginx state=latest
+
+  - name: add my webpage
+    copy: src={{source}} dest={{destanation}}
+
+  - name: start nginx
+    service: name=nginx state=started enabled=yes  
+   
+  
+    
