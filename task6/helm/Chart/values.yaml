@@ -1,0 +1,5 @@
+
+container:
+  image: nginx:1.27.3-bookworm-perl
+
+replicaCount: 2
